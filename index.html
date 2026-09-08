@@ -4,6 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="The Ecuadorian Wellness Company diseña retiros de bienestar en Ecuador con yoga, meditación, salud integral, naturaleza y profesoras de Ecuador, México y Estados Unidos." />
+  <link rel="canonical" href="https://ecwellnessco.org/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Ecuadorian Wellness Company" />
+  <meta property="og:url" content="https://ecwellnessco.org/" />
+  <meta property="og:title" content="The Ecuadorian Wellness Company | Retiros de bienestar en Ecuador" />
+  <meta property="og:description" content="Retiros de bienestar en Ecuador con yoga, meditación, naturaleza y hospitalidad." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/infooxbarec-star/ECWellnessCo/refs/heads/main/exec-4e63d1a9-0fcf-4286-aa26-d23a3cf1c856.png" />
+  <meta property="og:image:alt" content="Paisaje y hospitalidad de The Ecuadorian Wellness Company" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Ecuadorian Wellness Company | Retiros de bienestar en Ecuador" />
+  <meta name="twitter:description" content="Retiros de bienestar en Ecuador con yoga, meditación, naturaleza y hospitalidad." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/infooxbarec-star/ECWellnessCo/refs/heads/main/exec-4e63d1a9-0fcf-4286-aa26-d23a3cf1c856.png" />
   <title>The Ecuadorian Wellness Company | Retiros de bienestar en Ecuador</title>
   <style>
     :root {
@@ -892,11 +904,11 @@
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
     <div class="container nav" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="The Ecuadorian Wellness Company inicio">
+      <a class="brand" href="/" aria-label="The Ecuadorian Wellness Company inicio">
         <span>ECWellnessCO</span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="#inicio" data-i18n="nav.home">Inicio</a>
+        <a href="/" data-i18n="nav.home">Inicio</a>
         <a href="#salud" data-i18n="nav.health">Salud integral</a>
         <a href="#turismo" data-i18n="nav.tourism">Turismo wellness</a>
         <a href="#yoga" data-i18n="nav.yoga">Yoga</a>
@@ -1170,7 +1182,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <a class="brand" href="#inicio">
+      <a class="brand" href="/">
         <span>The Ecuadorian Wellness Company</span>
       </a>
       <span>Retiros de bienestar en Ecuador: yoga, meditación y salud integral.</span>
@@ -1178,6 +1190,9 @@
   </footer>
 
   <script>
+    if (window.location.hash === "#inicio") {
+      window.history.replaceState(null, "", window.location.pathname || "/");
+    }
     const menuButton = document.querySelector(".menu-button");
     const navLinks = document.querySelector("#navLinks");
     const langButtons = document.querySelectorAll("[data-lang]");
