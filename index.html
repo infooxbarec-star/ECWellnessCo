@@ -546,79 +546,107 @@
     }
     .method-step h3 { margin-bottom: 14px; }
 
-    .contact-wrap {
+    .contact-section { padding-block: clamp(64px, 7vw, 86px); }
+    .contact-wrap { max-width: 1080px; }
+    .contact-intro { max-width: 700px; margin-bottom: clamp(28px, 4vw, 42px); }
+    .contact-intro .kicker { margin-bottom: 14px; }
+    .contact-intro h2 { max-width: 680px; font-size: clamp(40px, 5vw, 64px); line-height: .96; }
+    .contact-intro .lead { max-width: 580px; margin-top: 17px; font-size: clamp(16px, 1.55vw, 19px); }
+    .contact-panel {
+      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, .78fr) minmax(0, 1fr);
-      gap: clamp(28px, 5vw, 70px);
-      align-items: start;
+      grid-template-columns: minmax(0, 1.2fr) minmax(290px, .8fr);
+      min-height: 342px;
+      overflow: hidden;
+      border: 1px solid rgba(32,39,36,.12);
+      border-radius: 30px;
+      background: rgba(255,253,248,.7);
+      box-shadow: 0 18px 46px rgba(40,45,42,.07);
     }
-    .contact-note {
-      margin-top: 28px;
-      padding: 24px;
-      border-left: 1px solid var(--earth);
-      background: rgba(255,253,248,.58);
-      color: var(--ink-soft);
+    .contact-primary, .contact-email { position: relative; z-index: 1; }
+    .contact-primary {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: clamp(32px, 5vw, 58px);
+      background: linear-gradient(135deg, rgba(255,253,248,.94), rgba(242,234,220,.68));
     }
-    .whatsapp-card {
-      display: grid;
-      gap: 22px;
-      padding: clamp(28px, 4vw, 42px);
-      border: 1px solid var(--line-soft);
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(255,253,248,.92), rgba(223,238,243,.32));
-      box-shadow: var(--soft-shadow);
-    }
-    .whatsapp-card h3 {
-      max-width: 620px;
-      font-size: clamp(28px, 3vw, 42px);
-    }
-    .whatsapp-card p { max-width: 600px; }
+    .contact-primary .kicker { margin-bottom: 13px; }
+    .contact-primary h3 { font-size: clamp(32px, 3.3vw, 48px); }
+    .contact-primary p { max-width: 500px; margin-top: 14px; }
     .whatsapp-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 13px;
       width: fit-content;
-      min-height: 56px;
-      padding: 15px 24px;
+      min-height: 58px;
+      margin-top: 26px;
+      padding: 16px 27px;
       border-radius: 999px;
       background: #1f2a25;
       color: var(--white);
       border: 1px solid rgba(32,39,36,.12);
-      box-shadow: 0 18px 36px rgba(32,39,36,.16);
+      box-shadow: 0 12px 28px rgba(32,39,36,.14);
       font-size: 12px;
       font-weight: 900;
       letter-spacing: .12em;
       text-transform: uppercase;
-      transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s ease, background .24s ease;
+      transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, background .3s ease;
     }
     .whatsapp-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 22px 44px rgba(32,39,36,.2);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(32,39,36,.18);
       background: #18211d;
     }
     .whatsapp-icon {
       width: 22px;
       height: 22px;
       flex: 0 0 auto;
+      transition: transform .3s cubic-bezier(.2,.8,.2,1);
     }
-    .contact-detail {
-      display: grid;
-      gap: 8px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line-soft);
+    .whatsapp-button:hover .whatsapp-icon { transform: translateX(3px) rotate(-4deg); }
+    .contact-response { margin-top: 12px; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .contact-email {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 100%;
+      padding: clamp(30px, 4vw, 48px);
+      isolation: isolate;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(223,238,243,.58), rgba(196,205,189,.32));
     }
-    .contact-detail span {
+    .contact-email::after {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(223,238,243,.72), rgba(223,238,243,.12)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPVea3w4P5FekBVPM-n6IK3baahlgnLfRmg-P3w8SJnq_3WuHQ8yqVoSk&s=10") center/cover;
+      opacity: .34;
+      mix-blend-mode: multiply;
+    }
+    .contact-email span {
       color: var(--earth);
       font-size: 11px;
       font-weight: 900;
       letter-spacing: .15em;
       text-transform: uppercase;
     }
-    .contact-detail strong {
+    .contact-email a {
+      display: inline-block;
+      width: fit-content;
+      margin-top: 7px;
       color: var(--ink);
       overflow-wrap: anywhere;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 800;
+      border-bottom: 1px solid rgba(32,39,36,.28);
+      transition: color .25s ease, border-color .25s ease;
     }
+    .contact-email a:hover { color: var(--earth); border-color: var(--earth); }
+    .contact-email p { max-width: 290px; margin-top: 17px; font-size: 14px; }
     .floating-whatsapp {
       position: fixed;
       right: 26px;
@@ -637,7 +665,7 @@
       font-weight: 900;
       letter-spacing: .12em;
       text-transform: uppercase;
-      transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s ease, background .24s ease;
+      transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s ease, background .24s ease, opacity .24s ease;
       animation: cardFloatIn .9s cubic-bezier(.2,.8,.2,1) .9s both;
     }
     .floating-whatsapp:hover {
@@ -645,6 +673,7 @@
       background: #18211d;
       box-shadow: 0 24px 54px rgba(32,39,36,.26);
     }
+    body.contact-in-view .floating-whatsapp { opacity: .38; transform: scale(.9); box-shadow: 0 10px 24px rgba(32,39,36,.13); }
     .floating-whatsapp svg {
       width: 26px;
       height: 26px;
@@ -796,12 +825,14 @@
       }
       .nav-links.is-open { max-height: 440px; opacity: 1; transform: translateY(0); }
       .menu-button { display: inline-flex; }
-      .hero-frame, .editorial-grid, .editorial-grid.reverse, .section-head, .method-intro, .contact-wrap { grid-template-columns: 1fr; }
+      .hero-frame, .editorial-grid, .editorial-grid.reverse, .section-head, .method-intro { grid-template-columns: 1fr; }
       .hero-frame { min-height: auto; }
       .hero-copy { min-height: auto; }
       .hero-image { min-height: 460px; }
       .principles, .retreats-grid, .method-steps { grid-template-columns: repeat(2, 1fr); }
       .teachers { grid-template-columns: 1fr; }
+      .contact-panel { grid-template-columns: 1fr; }
+      .contact-email { min-height: 230px; }
     }
 
     @media (max-width: 700px) {
@@ -821,6 +852,11 @@
       .trust-line span::after { display: none; }
       .image-panel { min-height: 360px; }
       .principles, .retreats-grid, .method-steps, .form-grid { grid-template-columns: 1fr; }
+      .contact-section { padding-block: 68px; }
+      .contact-intro h2 { font-size: clamp(38px, 10vw, 52px); }
+      .contact-panel { border-radius: 24px; }
+      .contact-primary, .contact-email { padding: 30px 24px; }
+      .contact-email { min-height: 190px; }
       .whatsapp-button { width: 100%; }
       .floating-whatsapp {
         right: 16px;
@@ -1094,31 +1130,32 @@
       </div>
     </section>
 
-    <section class="section section-soft" id="contacto">
+    <section class="section section-soft contact-section" id="contacto">
       <div class="container contact-wrap">
-        <div class="text-stack">
+        <header class="contact-intro">
           <span class="kicker">Contacto</span>
-          <h2>Comienza tu conversación con The Ecuadorian Wellness Company.</h2>
-          <p class="lead">Cuéntanos qué tipo de retiro estás imaginando y continuaremos la conversación directamente por WhatsApp.</p>
-          <p class="contact-note">Para grupos privados, profesoras visitantes, alianzas de retiro y experiencias de bienestar a medida en Ecuador.</p>
-        </div>
-        <aside class="whatsapp-card" aria-label="Contacto por WhatsApp">
-          <div>
+          <h2>Conversemos sobre tu próximo retiro.</h2>
+          <p class="lead">Cuéntanos qué experiencia estás imaginando y te ayudaremos a darle forma.</p>
+        </header>
+        <div class="contact-panel">
+          <div class="contact-primary" aria-label="Contacto por WhatsApp">
             <span class="kicker">WhatsApp</span>
-            <h3>La forma directa de contactar con The Ecuadorian Wellness Company.</h3>
-          </div>
-          <p>Haz clic y se abrirá WhatsApp con el mensaje preparado para iniciar la conversación.</p>
-          <a class="whatsapp-button" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20The%20Ecuadorian%20Wellness%20Company." target="_blank" rel="noopener" aria-label="Contactar The Ecuadorian Wellness Company por WhatsApp">
+            <h3>Hablemos directamente.</h3>
+            <p>Escríbenos y cuéntanos qué tipo de retiro, experiencia o colaboración tienes en mente.</p>
+            <a class="whatsapp-button" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20The%20Ecuadorian%20Wellness%20Company." target="_blank" rel="noopener" aria-label="Iniciar una conversación por WhatsApp">
             <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true">
               <path fill="currentColor" d="M19.05 4.91A9.8 9.8 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2.05 22l5.26-1.38a9.9 9.9 0 0 0 4.73 1.2h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7Zm-7.01 15.24h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.26-8.25a8.2 8.2 0 0 1 5.84 2.42 8.2 8.2 0 0 1 2.42 5.83c-.01 4.55-3.71 8.24-8.27 8.24Zm4.52-6.17c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.98-.15.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.13.17 1.76 2.69 4.26 3.77.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/>
             </svg>
-            <span>Escribir por WhatsApp</span>
-          </a>
-          <div class="contact-detail">
-            <span>Correo</span>
-            <strong>Saenz.isabel@gmail.com</strong>
+              <span>Iniciar conversación</span>
+            </a>
+            <p class="contact-response">Normalmente respondemos directamente por WhatsApp.</p>
           </div>
-        </aside>
+          <aside class="contact-email">
+            <span>También puedes escribirnos</span>
+            <a href="mailto:Saenz.isabel@gmail.com">Saenz.isabel@gmail.com</a>
+            <p>Para alianzas, retiros privados y consultas generales.</p>
+          </aside>
+        </div>
       </div>
     </section>
   </main>
@@ -1250,14 +1287,15 @@
           ".method-step:nth-child(3) p": "Naturaleza, meditación, journaling y comunidad para volver a escuchar lo esencial.",
           ".method-step:nth-child(4) p": "Llevar la experiencia a la vida diaria con prácticas simples, realistas y sostenibles.",
           "#contacto .kicker": "Contacto",
-          "#contacto h2": "Comienza tu conversación con The Ecuadorian Wellness Company.",
-          "#contacto .lead": "Cuéntanos qué tipo de retiro estás imaginando y continuaremos la conversación directamente por WhatsApp.",
-          ".contact-note": "Para grupos privados, profesoras visitantes, alianzas de retiro y experiencias de bienestar a medida en Ecuador.",
-          ".whatsapp-card .kicker": "WhatsApp",
-          ".whatsapp-card h3": "La forma directa de contactar con The Ecuadorian Wellness Company.",
-          ".whatsapp-card > p": "Haz clic y se abrirá WhatsApp con el mensaje preparado para iniciar la conversación.",
-          ".whatsapp-button span": "Escribir por WhatsApp",
-          ".contact-detail span": "Correo",
+          "#contacto h2": "Conversemos sobre tu próximo retiro.",
+          "#contacto .lead": "Cuéntanos qué experiencia estás imaginando y te ayudaremos a darle forma.",
+          ".contact-primary .kicker": "WhatsApp",
+          ".contact-primary h3": "Hablemos directamente.",
+          ".contact-primary > p:not(.contact-response)": "Escríbenos y cuéntanos qué tipo de retiro, experiencia o colaboración tienes en mente.",
+          ".whatsapp-button span": "Iniciar conversación",
+          ".contact-response": "Normalmente respondemos directamente por WhatsApp.",
+          ".contact-email span": "También puedes escribirnos",
+          ".contact-email p": "Para alianzas, retiros privados y consultas generales.",
           "footer .footer-inner > span": "Retiros de bienestar en Ecuador: yoga, meditación y salud integral."
         },
         labels: ["Nombre", "Email", "WhatsApp", "Retiro deseado", "Mensaje"],
@@ -1362,14 +1400,15 @@
           ".method-step:nth-child(3) p": "Nature, meditation, journaling, and community to listen again to what matters.",
           ".method-step:nth-child(4) p": "Bring the experience into daily life through simple, realistic, and sustainable practices.",
           "#contacto .kicker": "Contact",
-          "#contacto h2": "Begin your conversation with The Ecuadorian Wellness Company.",
-          "#contacto .lead": "Tell us what kind of retreat you are imagining and we will continue the conversation directly through WhatsApp.",
-          ".contact-note": "For private groups, visiting instructors, retreat partnerships, and custom wellness experiences in Ecuador.",
-          ".whatsapp-card .kicker": "WhatsApp",
-          ".whatsapp-card h3": "The direct way to contact The Ecuadorian Wellness Company.",
-          ".whatsapp-card > p": "Tap the button and WhatsApp will open with a prepared message to start the conversation.",
-          ".whatsapp-button span": "Message on WhatsApp",
-          ".contact-detail span": "Email",
+          "#contacto h2": "Let’s talk about your next retreat.",
+          "#contacto .lead": "Tell us what you are imagining and we will help you shape the experience.",
+          ".contact-primary .kicker": "WhatsApp",
+          ".contact-primary h3": "Let’s speak directly.",
+          ".contact-primary > p:not(.contact-response)": "Message us with the kind of retreat, experience, or collaboration you have in mind.",
+          ".whatsapp-button span": "Start a conversation",
+          ".contact-response": "We usually reply directly on WhatsApp.",
+          ".contact-email span": "You can also write to us",
+          ".contact-email p": "For partnerships, private retreats, and general inquiries.",
           "footer .footer-inner > span": "Wellness retreats in Ecuador: yoga, meditation, and holistic health."
         },
         labels: ["Name", "Email", "WhatsApp", "Desired retreat", "Message"],
@@ -1528,6 +1567,14 @@
         if (visible) setCurrentNav(visible.target.id);
       }, { rootMargin: "-28% 0px -58% 0px", threshold: [0.05, 0.25, 0.5] });
       sections.forEach((section) => navigationObserver.observe(section));
+
+      const contactSection = document.querySelector("#contacto");
+      if (contactSection) {
+        const contactObserver = new IntersectionObserver(([entry]) => {
+          document.body.classList.toggle("contact-in-view", entry.isIntersecting);
+        }, { threshold: .28 });
+        contactObserver.observe(contactSection);
+      }
     } else {
       setCurrentNav("inicio");
     }
